@@ -30,8 +30,8 @@ app.get('/productHunt', (_req: any, res: any): void => {
     .then((results: any) => {
       let data = results.data;
       console.log({ data });
-      fs.writeFileSync(path.join(__dirname + '/results/ph.html'), data);
-      fs.writeFileSync(path.join(__dirname + '/results/ph.txt'), data);
+      fs.writeFileSync(path.join(__dirname + '/listings/ph.html'), data);
+      fs.writeFileSync(path.join(__dirname + '/listings/ph.txt'), data);
       res.send(data);
     })
     .catch((err: Error) => {
