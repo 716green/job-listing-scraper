@@ -1,5 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
+
+import { scraper } from './utils/scraper';
 import { dateTimeObj } from './utils/dateAndTime';
 import axios from 'axios';
 import fs from 'fs';
@@ -17,8 +19,18 @@ app.use(
 );
 
 const productHunt = 'https://www.producthunt.com/jobs';
-console.log(productHunt);
-console.log(dateTimeObj);
+const phXpath = '/html/body/div[1]/div[2]/main/div[2]/div[1]/div';
+// const url = productHunt;
+
+const sampleUrl = 'http://toscrape.com/';
+const url = sampleUrl;
+const sampleXPath = '/html/body/div/div[2]/div[1]';
+const xpath = sampleXPath;
+
+scraper(url, xpath);
+
+// console.log(productHunt);
+// console.log(dateTimeObj);
 
 app.get('/', (_req: any, res: any): void => {
   res.json({ hello: 'world' });
